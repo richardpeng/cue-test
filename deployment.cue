@@ -1,3 +1,5 @@
+package app
+
 podinfo: {
     apiVersion: "apps/v1"
     kind:       "Deployment"
