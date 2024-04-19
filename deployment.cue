@@ -1,8 +1,8 @@
 package app
 
-config: objects: [podinfo]
+objects: [for t in output for v in t {v}]
 
-podinfo: {
+output: deployments: podinfo: {
     apiVersion: "apps/v1"
     kind:       "Deployment"
     metadata: {
