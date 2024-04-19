@@ -1,6 +1,6 @@
 package app
 
-podinfo: {
+config: podinfo: {
     apiVersion: "apps/v1"
     kind:       "Deployment"
     metadata: {
