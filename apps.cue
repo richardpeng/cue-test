@@ -3,9 +3,9 @@ package app
 apps: podinfo: image: "ghcr.io/stefanprodan/podinfo:6.5.4"
 apps: nginx: {
 	image: "bitnami/nginx"
-	replicas: 4
+//	replicas: 4
 }
 apps: nginx2: {
 	image: "bitnami/nginx"
-	replicas: 3
+//	replicas: 3
 }
