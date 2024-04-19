@@ -2,7 +2,13 @@ package app
 
 objects: [for t in output for v in t {v}]
 
-output: deployments: [Name=string]: {
+#App: {
+	image: string
+}
+
+apps: [Name=string]: #App
+
+output: deployments: [for Name, x in apps {
 	apiVersion: "apps/v1"
 	kind:       "Deployment"
 	metadata: name: Name
@@ -13,12 +19,9 @@ output: deployments: [Name=string]: {
 			spec: {
 				containers: [{
 					name:  "podinfo"
-					image: "ghcr.io/stefanprodan/podinfo:6.5.4"
+					image: x.image
 				}]
 			}
 		}
 	}
-}
-
-output: deployments: podinfo: {}
-output: deployments: podinfo2: {}
+}]
