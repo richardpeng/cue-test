@@ -5,4 +5,7 @@ apps: nginx: {
 	image: "bitnami/nginx"
 	replicas: 10
 }
-apps: nginx2: image: "bitnami/nginx"
+apps: nginx2: {
+	image: "bitnami/nginx"
+	replicas: 3
+}
