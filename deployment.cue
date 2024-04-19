@@ -4,6 +4,7 @@ objects: [for t in output for v in t {v}]
 
 #App: {
 	image: string
+	replicas: int & <5
 }
 
 apps: [Name=string]: #App
