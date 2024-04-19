@@ -2,43 +2,23 @@ package app
 
 objects: [for t in output for v in t {v}]
 
-output: deployments: podinfo: {
-    apiVersion: "apps/v1"
-    kind:       "Deployment"
-    metadata: {
-        name:      "podinfo"
-        labels: {
-            name:                         "podinfo"
-            service:                      "podinfo"
-            "app.kubernetes.io/name":     "podinfo"
-        }
-    }
-    spec: {
-        selector: {
-            matchLabels: {
-                name:        "podinfo"
-                service:     "podinfo"
-                environment: "test"
-                component:   "backend"
-                tier:        "1"
-            }
-        }
-        template: {
-            metadata: {
-                labels: {
-                    name:        "podinfo"
-                    service:     "podinfo"
-                    environment: "test"
-                    component:   "backend"
-                    tier:        "1"
-                }
-            }
-            spec: {
-                containers: [{
-                    name:  "podinfo"
-                    image: "ghcr.io/stefanprodan/podinfo:6.5.4"
-                }]
-            }
-        }
-    }
+output: deployments: [Name=string]: {
+	apiVersion: "apps/v1"
+	kind:       "Deployment"
+	metadata: name: Name
+	spec: {
+		selector: matchLabels: app: Name
+		template: {
+			metadata: labels: app: Name
+			spec: {
+				containers: [{
+					name:  "podinfo"
+					image: "ghcr.io/stefanprodan/podinfo:6.5.4"
+				}]
+			}
+		}
+	}
 }
+
+output: deployments: podinfo: {}
+output: deployments: podinfo2: {}
