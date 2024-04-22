@@ -7,5 +7,5 @@ apps: nginx: {
 }
 apps: nginx2: {
 	image: "bitnami/nginx"
-	replicas: 6
+	replicas: 4
 }
