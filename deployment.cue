@@ -1,6 +1,6 @@
 package app
 
-kubernetes: objects: [for t in output for v in t {v}]
+kubernetes: output: [for t in output for v in t {v}]
 
 #App: {
 	image: string
